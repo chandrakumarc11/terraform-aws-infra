@@ -89,4 +89,13 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: |
+    terraform apply \
+      -var="aws_region=us-east-1" \
+      -var="environment=dev" \
+      -var="vpc_cidr=10.0.0.0/16" \
+      -var="public_subnet_1=10.0.1.0/24" \
+      -var="public_subnet_2=10.0.2.0/24" \
+      -var="instance_type=t2.micro" \
+      -var="ami_id=ami-0c02fb55956c7d316" \
+      -auto-approve
