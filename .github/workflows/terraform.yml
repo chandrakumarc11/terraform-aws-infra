@@ -9,6 +9,19 @@ jobs:
   terraform-plan:
     runs-on: ubuntu-latest
 
+
+
+    env:
+      TF_VAR_aws_region: ${{ secrets.TF_VAR_aws_region }}
+      TF_VAR_environment: ${{ secrets.TF_VAR_environment }}
+      TF_VAR_vpc_cidr: ${{ secrets.TF_VAR_vpc_cidr }}
+      TF_VAR_public_subnet_1: ${{ secrets.TF_VAR_public_subnet_1 }}
+      TF_VAR_public_subnet_2: ${{ secrets.TF_VAR_public_subnet_2 }}
+      TF_VAR_instance_type: ${{ secrets.TF_VAR_instance_type }}
+      TF_VAR_ami_id: ${{ secrets.TF_VAR_ami_id }}
+
+
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
