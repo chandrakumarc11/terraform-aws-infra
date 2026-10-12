@@ -1,7 +1,9 @@
 #!/bin/bash
-yum update -y
-yum install nginx -y
+
+apt update -y
+apt install nginx -y
+
 systemctl enable nginx
 systemctl start nginx
 
-echo "<h1>Terraform GitHub Actions Project</h1>" > /usr/share/nginx/html/index.html
+echo "<h1>Terraform GitHub Actions Project</h1>" > /var/www/html/index.html
